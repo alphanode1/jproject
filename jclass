@@ -5,7 +5,7 @@ package=$2
 
 function classFile(){
 cat > ${file}.java << EOF
-public class ${file} {
+class ${file} {
 }
 EOF
 }
@@ -15,7 +15,7 @@ mkdir ${package} -p
 cat > ${package}/${file}.java << EOF
 package ${package};
 
-public class ${file} {
+class ${file} {
 }
 EOF
 }
