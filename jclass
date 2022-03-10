@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+file=$1
+package=$2
+
+function classFile(){
+cat > ${file}.java << EOF
+public class ${file} {
+}
+EOF
+}
+
+function packageFile(){
+mkdir ${package} -p
+cat > ${package}/${file}.java << EOF
+package ${package};
+
+public class ${file} {
+}
+EOF
+}
+
+
+if [[ $# = 1 ]]; then
+   classFile
+   echo -e "\n${file}.java class file created.\n"
+elif [[ $# = 2 ]]; then
+   packageFile
+   echo -e "\n${file}.java class file created under ${package} package.\n"
+else
+   echo "No"
+fi
